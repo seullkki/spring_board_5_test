@@ -56,4 +56,10 @@ public class BoardController {
 		boardService.reply(boardVO);
 		return "redirect:list";
 	}
+	
+	@RequestMapping("/board/modify")
+	public String modify(BoardVO boardVO) throws Exception {
+		boardService.modify(boardVO);
+		return "redirect:list";
+	}
 }

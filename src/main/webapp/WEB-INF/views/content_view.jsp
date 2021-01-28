@@ -16,10 +16,13 @@
 	table{	
 		width:500px;
 	}
+	
+
 </style>
 </head>
 <body>
-	<form action="modify">			<!-- /board/modify? -->
+	<form action="modify">			<!-- URL에 이미 board가 붙어있으므로, 맵핑 이름만 적어주면 됨 -->
+	<input type="hidden" name="iId" value="${content_view.iId }"  />			<!-- 주의 id value를 줘야 해당 id값을 가져갈 수 있음 -->
 	<table>
 		<tr>
 			<td>글번호</td>
@@ -43,7 +46,8 @@
 		
 		<tr>
 			<td>내용</td>
-			<td><input type="text" name="iContent" value="${content_view.iContent }" /></td>
+			<td><input type="text" name="iContent" value="${content_view.iContent }" style="width:300px; height:200px;" /></td>
+			<%-- <td><textarea name="iContent" value="${content_view.iContent } rows="50" cols="30"></textarea></td> --%>
 		</tr>
 		
 		<tr>

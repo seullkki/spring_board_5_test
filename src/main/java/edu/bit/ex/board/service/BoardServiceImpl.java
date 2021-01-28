@@ -48,4 +48,9 @@ public class BoardServiceImpl implements BoardService {
 		boardMapper.reply(boardVO);
 	}
 
+	@Override
+	public void modify(BoardVO boardVO) {
+		boardMapper.modify(boardVO);
+	}
+
 }

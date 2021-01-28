@@ -37,7 +37,7 @@
 		
 		<tr>
 			<td>내용</td>
-			<td><input type="text" name="iContent" value="${reply_view.iContent }" /></td>
+			<td><input type="text" name="iContent" value="${reply_view.iContent }" style="width:300px; height:200px;"/></td>
 		</tr>
 		
 		<tr>

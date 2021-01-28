@@ -18,4 +18,6 @@ public interface BoardService {
 
 	public void reply(BoardVO boardVO);
 
+	public void modify(BoardVO boardVO);
+
 }

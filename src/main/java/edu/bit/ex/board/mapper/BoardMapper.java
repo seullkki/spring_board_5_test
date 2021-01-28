@@ -22,4 +22,6 @@ public interface BoardMapper {
 
 	public void addHit(int iId);
 
+	public void modify(BoardVO boardVO);
+
 }

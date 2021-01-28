@@ -54,5 +54,11 @@
 	]]>
 	</update>
 	
+	<update id="modify">
+	<![CDATA[
+		update information set iName = #{iName}, iTitle = #{iTitle}, iContent = #{iContent} where iId = #{iId}
+	]]>
+	</update>
+	
 	
 </mapper>
