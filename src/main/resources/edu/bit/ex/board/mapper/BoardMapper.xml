@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.bit.ex.board.mapper.BoardMapper">
+   
+	<select id="list" resultType="edu.bit.ex.board.vo.BoardVO">
+	<![CDATA[
+		select * from information order by iGroup desc, iStep asc
+	]]>
+	</select>
+   
+   	<select id="getContent" resultType="edu.bit.ex.board.vo.BoardVO">
+	<![CDATA[
+		select * from information where iId = #{iId}
+	]]>
+	</select>
+	
+	<insert id="write">
+	<![CDATA[
+		insert into information (iId, iName, iTitle, iContent, iHit, iGroup, iStep, iIndent) values (information_seq.nextval, #{iName}, #{iTitle}, #{iContent}, 0, information_seq.currval, 0, 0)
+	]]>
+	</insert>
+   
+   
+   	<delete id="delete">
+	<![CDATA[
+		delete from information where iId = #{iId}
+	]]>
+	</delete>
+	
+	   
+	<select id="replyView" resultType="edu.bit.ex.board.vo.BoardVO">
+	<![CDATA[
+		select * from information where iId = #{iId}
+	]]>
+	</select>
+	
+	<insert id="reply">
+	<![CDATA[
+		insert into information (iId, iName, iTitle, iContent, iGroup, iStep, iIndent) values (information_seq.nextval, #{iName}, #{iTitle}, #{iContent}, #{iGroup}, #{iStep}+1, #{iIndent}+1)
+	]]>
+	</insert>
+	
+	<update id="replyShape">
+	<![CDATA[
+		update information set iStep = iStep + 1 where iGroup = #{iGroup} and iStep > #{iStep}
+	]]>
+	</update>
+	
+	<update id="addHit">
+	<![CDATA[
+		update information set iHit = iHit + 1 where iId = #{iId}
+	]]>
+	</update>
+	
+	
+</mapper>
