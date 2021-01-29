@@ -15,6 +15,12 @@ import lombok.extern.log4j.Log4j;
 public class BoardController {
 	private BoardService boardService;
 	
+	@RequestMapping("/board/home")
+	public String home() throws Exception {
+		
+		return "home";	
+	}
+	
 	@RequestMapping("/board/list")
 	public String list(Model model) throws Exception {
 		model.addAttribute("list", boardService.getList());
@@ -36,7 +42,8 @@ public class BoardController {
 	@RequestMapping("/board/write")
 	public String write(BoardVO boardVO) throws Exception {
 		boardService.write(boardVO);
-		return "redirect:list";
+		return "redirect:/board/list";							// 이렇게 경로를 지정해도 작동함.
+																// Q. redirect 경로지정은 어떻게 하는 건가?
 	}
 	
 	@RequestMapping("/board/delete")
@@ -62,4 +69,10 @@ public class BoardController {
 		boardService.modify(boardVO);
 		return "redirect:list";
 	}
+	
+	@RequestMapping("/board/shop")
+	public String shop() throws Exception {
+		return "shop";
+	}
+	
 }
